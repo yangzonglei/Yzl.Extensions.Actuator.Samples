@@ -8,12 +8,16 @@
 
 - `AddSpringNetActuator` 服务注册
 - `UseSpringNetActuatorMapEndpoints` 端点映射
+- `UseSpringNetActuatorHttpTrace` 请求追踪中间件
 - `/actuator` 端点链接
 - `/actuator/health` 健康检查与自定义 `IHealthContributor`
 - `/actuator/info` 应用信息
 - `/actuator/metrics` 指标列表与指标详情
 - `/actuator/loggers` 日志级别查看
 - `/actuator/caches` 内存缓存查看与清理
+- `/actuator/beans` 注册服务列表
+- `/actuator/httptrace` HTTP 请求追踪
+- `/actuator/shutdown` 优雅关闭
 - `/actuator/env`、`/actuator/mappings`、`/actuator/conditions`、`/actuator/metadata`
 
 ## English
@@ -24,12 +28,16 @@ The demo covers:
 
 - Service registration with `AddSpringNetActuator`
 - Endpoint mapping with `UseSpringNetActuatorMapEndpoints`
+- HttpTrace middleware with `UseSpringNetActuatorHttpTrace`
 - `/actuator` endpoint links
 - `/actuator/health` with custom `IHealthContributor` implementations
 - `/actuator/info` application information
 - `/actuator/metrics` metric names and metric details
 - `/actuator/loggers` logger-level inspection
 - `/actuator/caches` memory cache inspection and eviction
+- `/actuator/beans` registered service list
+- `/actuator/httptrace` HTTP request tracing
+- `/actuator/shutdown` graceful shutdown
 - `/actuator/env`, `/actuator/mappings`, `/actuator/conditions`, `/actuator/metadata`
 
 ## 快速开始 / Quick start
@@ -54,6 +62,8 @@ dotnet run --project Yzl.Extensions.Actuator.Samples/src/Yzl.Extensions.Actuator
 - `http://localhost:17001/actuator/metrics/jvm.memory.used`
 - `http://localhost:17001/actuator/loggers`
 - `http://localhost:17001/actuator/caches`
+- `http://localhost:17001/actuator/beans`
+- `http://localhost:17001/actuator/httptrace`
 - `http://localhost:17001/cache/add?name=demo`
 - `http://localhost:17001/cache/get?name=demo`
 - `http://localhost:17001/logger?str=hello`
@@ -78,7 +88,7 @@ The demo references `Yzl.Extensions.Actuator` as a NuGet package, which matches 
 
 ```xml
 <ItemGroup>
-  <PackageReference Include="Yzl.Extensions.Actuator" Version="0.1.7" />
+  <PackageReference Include="Yzl.Extensions.Actuator" Version="0.1.8" />
 </ItemGroup>
 ```
 
